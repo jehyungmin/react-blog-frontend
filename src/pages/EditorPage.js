@@ -3,7 +3,8 @@ import EditorTemplate from '../components/editor/EditorTemplate';
 import EditorHeader from '../components/editor/EditorHeader';
 import EditorPane from '../components/editor/EditorPane';
 import PreviewPane from '../components/editor/PreviewPane';
-import EditorPaneContainer from '../components/editor/EditorPaneContainer';
+import PreviewPaneContainer from '../containers/editor/PreviewPaneContainer';
+import EditorPaneContainer from '../containers/editor/EditorPaneContainer';
 
 const EditorPage = () => {
     return (
@@ -11,7 +12,7 @@ const EditorPage = () => {
             <EditorTemplate 
                 header={<EditorHeader/>}
                 editor={<EditorPaneContainer/>}
-                preview={<PreviewPane />}
+                preview={<PreviewPaneContainer/>}
             />
         </div>
     )
