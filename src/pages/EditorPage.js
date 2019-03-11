@@ -5,12 +5,13 @@ import EditorPane from '../components/editor/EditorPane';
 import PreviewPane from '../components/editor/PreviewPane';
 import PreviewPaneContainer from '../containers/editor/PreviewPaneContainer';
 import EditorPaneContainer from '../containers/editor/EditorPaneContainer';
+import EditorHeaderContainer from '../containers/editor/EditorHeaderContainer';
 
 const EditorPage = () => {
     return (
         <div>
             <EditorTemplate 
-                header={<EditorHeader/>}
+                header={<EditorHeaderContainer />}
                 editor={<EditorPaneContainer/>}
                 preview={<PreviewPaneContainer/>}
             />

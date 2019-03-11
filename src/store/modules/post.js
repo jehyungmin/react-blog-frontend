@@ -1,17 +1,30 @@
 import { createAction, handleActions } from 'redux-actions';
-import { Map } from 'immutable';
+
+import { Map, fromJS } from 'immutable';
 import { pender } from 'redux-pender';
 
-//action types
+import * as api from '../../lib/api';
 
-//action creators
+// action types
+const GET_POST = 'post/GET_POST';
+// const REMOVE_POST = 'post/REMOVE_POST';
 
-//initial state
+// action creators
+export const getPost = createAction(GET_POST, api.getPost);
+// export const removePost = createAction(REMOVE_POST, api.removePost);
+
+// initial state
 const initialState = Map({
-
+    post: Map({})
 });
 
-//reducer
+// reducer
 export default handleActions({
-
+    ...pender({
+        type: GET_POST,
+        onSuccess: (state, action) => {
+            const { data: post } = action.payload;
+            return state.set('post', fromJS(post));
+        }
+    })
 }, initialState)
