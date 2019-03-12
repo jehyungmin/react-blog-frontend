@@ -23,8 +23,14 @@ export default handleActions({
     ...pender({
         type: GET_POST,
         onSuccess: (state, action) => {
-            const { data: post } = action.payload;
-            return state.set('post', fromJS(post));
+            // const { data: post } = action.payload;
+            // return state.set('post', fromJS(post));
+
+            const post = action.payload.data[0];
+            let newState;
+
+            post === undefined ? newState = state : newState = state.set('post', fromJS(post));
+            return newState;
         }
     })
 }, initialState)

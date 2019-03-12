@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 class Post extends Component {
-    initialize = async () => {
+    initialize = async() => {
         const { PostActions, id } = this.props;
         try {
             await PostActions.getPost(id);
@@ -24,12 +24,12 @@ class Post extends Component {
 
         if (loading) return null; // 로딩 중일 때는 아무것도 보여주지 않음
 
-        const { title, body, publishedDate, tags } = post.toJS();
+        const { title, content, publishedDate, tags } = post.toJS();
 
         return (
             <div>
                 <PostInfo title={title} publishedDate={publishedDate} tags={tags} />
-                <PostBody body={body} />
+                <PostBody body={content} />
             </div>
         )
     }

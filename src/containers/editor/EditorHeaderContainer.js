@@ -19,11 +19,16 @@ class EditorHeaderContainer extends Component {
 
     handleSubmit = async () => {
         const { title, markdown, tags, EditorActions, history} = this.props;
+        console.log(post);
         const post = {
             title,
-            body: markdown,
-            tags: tags === "" ? [] : [...new Set(tags.split(',').map(tag => tag.trim()))]
+            // body: markdown,
+            content: markdown,
+            // tags: tags === "" ? [] : [...new Set(tags.split(',').map(tag => tag.trim()))]
+            tags: tags,
+            userId: 0
         };
+        console.log(post);
         try{
             await EditorActions.writePost(post);
             history.push(`/post/${this.props.postId}`);
@@ -47,7 +52,7 @@ class EditorHeaderContainer extends Component {
 
 export default connect (
     (state) => ({
-        titls: state.editor.get('title'),
+        title: state.editor.get('title'),
         markdown: state.editor.get('markdown'),
         tags: state.editor.get('tags'),
         postId: state.editor.get('postId')

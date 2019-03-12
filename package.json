@@ -2,6 +2,7 @@
   "name": "blog-frontend",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://101.101.166.29:4000",
   "dependencies": {
     "@babel/core": "7.2.2",
     "@svgr/webpack": "4.1.0",
@@ -61,7 +62,7 @@
     "redux-actions": "^2.6.5",
     "redux-pender": "^2.0.12",
     "resolve": "1.10.0",
-    "sass-loader": "7.1.0",
+    "sass-loader": "^7.1.0",
     "style-loader": "0.23.1",
     "terser-webpack-plugin": "1.2.2",
     "url-loader": "1.1.2",
@@ -133,6 +134,5 @@
     "presets": [
       "react-app"
     ]
-  },
-  "proxy": "http://localhost:4000"
+  }
 }
