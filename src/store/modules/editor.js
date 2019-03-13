@@ -33,8 +33,9 @@ export default handleActions({
             // return state.set('postId', _id);
             console.log("===WEITE_POST_SUCESS===");
             //보내는 데이터가 책과 다르기 때문에 변경
-            const{ insertId } = action.psyload.data.resultDate;
-            return state.set('postId' , insertId);
+            
+            const { insertId } = action.payload.data.resultData;
+            return state.set('postId', insertId);
         }
     })
 }, initialState)

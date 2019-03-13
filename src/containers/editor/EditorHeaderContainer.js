@@ -19,7 +19,6 @@ class EditorHeaderContainer extends Component {
 
     handleSubmit = async () => {
         const { title, markdown, tags, EditorActions, history} = this.props;
-        console.log(post);
         const post = {
             title,
             // body: markdown,
@@ -28,9 +27,11 @@ class EditorHeaderContainer extends Component {
             tags: tags,
             userId: 0
         };
-        console.log(post);
+        
+        //console.log(post);
         try{
             await EditorActions.writePost(post);
+            console.log(this.props.postId);
             history.push(`/post/${this.props.postId}`);
         }catch(e){
             console.log(e);
