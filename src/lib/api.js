@@ -1,4 +1,5 @@
 import axios from 'axios';
+import queryString from 'query-string';
 
 export const writePost = ({ title, content, tags, userId=0}) => 
 axios.post(
@@ -8,3 +9,5 @@ axios.post(
     {title, content, tags, userId}
 );
 export const getPost = (id) => axios.get(`/api/posts/${id}`);
+
+export const getPostList = ({tag, page}) => axios.get(`/api/posts/?${queryString.stringify({tag, page})}`);
